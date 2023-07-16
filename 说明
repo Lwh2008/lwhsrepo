@@ -1,6 +1,0 @@
-
-一般情况下载文件在/Download里面
-QQ算一个奇葩在/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv
-压缩包建议放在Pictures文件夹里面（在一般情况下的安卓用户的”根”目录里面），
-这样的话如果哪天手机被“突击检查”，
-只要把Pictures里面的的压缩包一解压就可以直接做到“恢复相册”嘿嘿
