@@ -7,5 +7,7 @@ on: push
       - name: Run
         run: |
           dnf -y up
-          dnf -y in qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtbase-private-devel glib2-devel ostree-devel yaml-cpp-devel systemd-devel libseccomp-devel docopt-cpp-devel python3-docopt elfutils-libelf-devel git
-          
+          dnf -y in qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtbase-private-devel glib2-devel ostree-devel yaml-cpp-devel systemd-devel libseccomp-devel docopt-cpp-devel python3-docopt elfutils-libelf-devel git wget rpm-build
+          wget http://lwhs.voin.ink/rpmbuild.tar.gz
+          tar xf rpmbuild.tar.gz
+          rpmbuild -bb rpmbuild/SPEC/newpackage.spec
