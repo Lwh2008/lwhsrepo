@@ -4,7 +4,7 @@ jobs:
   package:
     runs-on: ubuntu-latest
     container: almalinux
-    steps: test
+    steps: 
     - name: package
       run: |
         dnf -y in epel-release
