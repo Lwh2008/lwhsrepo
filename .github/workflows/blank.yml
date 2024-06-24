@@ -1,6 +1,7 @@
 name: CI
 on: [push]
-  job: pkg
+jobs: 
+  package:
     runs-on: ubuntu-latest
     container: almalinux
     steps:
