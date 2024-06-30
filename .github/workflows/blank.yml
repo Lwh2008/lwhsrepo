@@ -3,15 +3,15 @@ on: [push]
 jobs: 
   package:
     runs-on: ubuntu-latest
-    container: almalinux
+    container: fedora
     steps: 
     - name: package
       run: |
         dnf -y in epel-release
         dnf -y up
         dnf -y in qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtbase-private-devel glib2-devel ostree-devel yaml-cpp-devel systemd-devel libseccomp-devel docopt-cpp-devel python3-docopt elfutils-libelf-devel git wget rpm-build fastfetch
-        wget http://lwhs.voin.ink/rpmbuild.tar.gz
-        tar xf rpmbuild.tar.gz
-        rpmbuild -bb rpmbuild/SPEC/newpackage.spec
+        git clone https://github.com/lwh2008/ll-rpm.git
+        cd ll-rpm
+        bash indep.sh
     - name: info
       run: fastfetch
