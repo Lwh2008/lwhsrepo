@@ -13,7 +13,7 @@ jobs:
         ls
         cd ll-rh
         ls
-        tar xzvf linglong.tgz
+        tar xzvf linglong.tar.gz
         cd linglong
         mkdir build
         cd build
