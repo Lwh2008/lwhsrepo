@@ -17,12 +17,6 @@ jobs:
       run: |
         cd ll-rh
         bash indep.sh
-        git clone https://github.com/linuxdeepin/linglong.git --tag 1.5.5
-        cd 1.5.5
-        mkdir build
-        cd build
-        make -j$(nproc)
-        make install
         ll-cli
     - name: info
       run: fastfetch
