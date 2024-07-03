@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-  package:#工作名称
+  package:
     runs-on: ubuntu-lates
     container: fedora
     steps: 
