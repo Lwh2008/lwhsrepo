@@ -20,7 +20,7 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        make -j$(nproc)
+        make -j$(nproc) V=1
         make install
     - name: info
       run: fastfetch
