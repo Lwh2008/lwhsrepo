@@ -20,6 +20,7 @@ jobs:
         mkdir build
         cd build
         cmake ..
+        cat Makefile | awk 'NR>=160 && NR<=170'
         make -j$(nproc) V=1
         make install
     - name: info
