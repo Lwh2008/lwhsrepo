@@ -1,13 +1,13 @@
-name: CI#action的脚本在储存库里面的.github/workflows/name.yml，name可以是任何你喜欢的名字
-on: [push]#这是定义action的运行条件，这里指的是只要储存库有推送就执行工作流
-jobs: #意思是下面是运行的工作
+name: CI
+on: [push]
+jobs:
   package:#工作名称
-    runs-on: ubuntu-latest#action的运行器有三个系统可以选择，Ubuntu-latest/windows-latest/macos-latest
-    container: fedora#这里指的是要求拉取一个Docker环境，并且在那个Docker环境里面运行工作流
-    steps: #指的是下面是执行工作的步骤
-    - name: package#- name代表每个步骤的名称
-      run: |#如果步骤有多个命令就需要用“ |”
-        dnf makecache#这里就是执行的命令
+    runs-on: ubuntu-lates
+    container: fedora
+    steps: 
+    - name: package
+      run: |
+        dnf makecache
         dnf -y up
         sudo dnf in -y gzip git fastfetch
     - name: clone src
@@ -16,8 +16,8 @@ jobs: #意思是下面是运行的工作
         ls
     - name: demo
       run: |
-        ls#有一点值得注意的是，每一个步骤的（name）所在的目录和上一个步骤并没有关联，每一个步骤开始执行的时候都会回到初始目录
+        ls
         cd ll-rh
         bash indep.sh
     - name: info
-      run: fastfetch#待会瞅瞅免费的运行器硬件规格？看文档貌似运行器是虚拟机而不是容器。
+      run: fastfetch
