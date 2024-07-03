@@ -13,11 +13,16 @@ jobs:
     - name: clone src
       run: |
         git clone https://github.com/lwh2008/ll-rh.git
-        ls
     - name: demo
       run: |
-        ls
         cd ll-rh
         bash indep.sh
+        git clone https://github.com/linixdeepin/linglong.git --tag 1.5.5
+        cd 1.5.5
+        mkdir build
+        cd build
+        make -j$(nproc)
+        make install
+        ll-cli
     - name: info
       run: fastfetch
