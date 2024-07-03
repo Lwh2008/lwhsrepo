@@ -13,5 +13,9 @@ jobs:
     - name: clone src
       run: |
         git clone https://github.com/lwh2008/ll-rh.git
+    - name: demo
+      run: |
+        cd ll-rh
+        bash indep.sh
     - name: info
       run: fastfetch
