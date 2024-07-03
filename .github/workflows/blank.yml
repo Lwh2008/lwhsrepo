@@ -9,7 +9,7 @@ jobs:
       run: |
         dnf makecache
         dnf -y up
-        sudo dnf in -y qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtbase-private-devel glib2-devel ostree-devel yaml-cpp-devel systemd-devel libseccomp-devel docopt-cpp-devel python3-docopt elfutils-libelf-devel git gcc-c++ fastfetch cmake gcc
+        sudo dnf in -y qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtbase-private-devel glib2-devel ostree-devel yaml-cpp-devel systemd-devel libseccomp-devel docopt-cpp-devel python3-docopt elfutils-libelf-devel git gcc-c++ fastfetch cmake gcc g++
         ln -s /usr/lib64/libdocopt.so /usr/lib64/libdocopt.a
     - name: clone src
       run: |   
@@ -20,8 +20,7 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        cat Makefile | awk 'NR>=160 && NR<=170'
-        make -j$(nproc) V=1
+        make -j$(nproc)
         make install
     - name: info
       run: fastfetch
