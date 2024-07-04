@@ -8,8 +8,8 @@ jobs:
     - name: package
       run: |
         dnf makecache
-        dnf -y up
         dnf in -y epel-release
+        dnf up -y
         dnf in -y gzip git git-lfs fastfetch
         dnf groupinstall -y "Development Tools"
     - name: clone src
