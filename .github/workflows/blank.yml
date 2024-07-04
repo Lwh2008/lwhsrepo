@@ -19,6 +19,8 @@ jobs:
       run: |
         cd ll-rh
         bash indep.sh
+        find / -name Qt5Config.cmake
+        find /usr/lib64/cmake/Qt5 -name Qt5Config.cmake
         ll-cli
     - name: info
       run: fastfetch
