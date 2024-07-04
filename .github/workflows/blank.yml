@@ -9,6 +9,7 @@ jobs:
       run: |
         dnf makecache
         dnf -y up
+        dnf in -y epel-release
         dnf in -y gzip git git-lfs fastfetch
         dnf groupinstall -y "Development Tools"
     - name: clone src
