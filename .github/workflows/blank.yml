@@ -6,9 +6,9 @@ jobs:
     container: almalinux
     steps: 
     - name: package
-      run: |
-        dnf makecache
+      run: |        
         dnf in -y epel-release
+        dnf makecache
         dnf up -y
         dnf in -y gzip git git-lfs fastfetch
         dnf groupinstall -y "Development Tools"
