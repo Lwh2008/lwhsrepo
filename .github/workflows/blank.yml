@@ -9,7 +9,7 @@ jobs:
       run: |
         dnf makecache
         dnf -y up
-        sudo dnf in -y gzip git git-lfs fastfetch
+        sudo dnf in -y gzip git git-lfs fastfetch gcc gcc-c++
         sudo dnf groupinstall -y "Development Tools"
     - name: clone src
       run: |
