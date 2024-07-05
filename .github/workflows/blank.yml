@@ -11,7 +11,7 @@ jobs:
         dnf makecache
         dnf up -y
         dnf in -y gzip git git-lfs fastfetch cmake
-        dnf groupinstall -y "Development Tools"
+        
     - name: clone src
       run: |
         git lfs clone https://github.com/lwh2008/ll-rh.git
