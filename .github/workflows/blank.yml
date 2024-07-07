@@ -7,8 +7,7 @@ jobs:
     steps: 
     - name: package
       run: |        
-        dnf makecache
-        dnf up -y
+        dnf up --refresh -y
         dnf in -y gzip git git-lfs fastfetch cmake gcc
         
     - name: clone src
