@@ -10,13 +10,12 @@ jobs:
         dnf up --refresh -y
         dnf in -y gzip git git-lfs fastfetch cmake gcc
         
-    - name: clone src
-      run: |
-        git lfs clone https://github.com/lwh2008/ll-rh.git
-    - name: demo
+    - name: run
       run: |
         cd ll-rh
         bash indep.sh
+    - name: demo
+      run: |
         ll-cli
     - name: info
       run: fastfetch
