@@ -7,7 +7,7 @@ ln -s /usr/lib64/libdocopt.so /usr/lib64/libdocopt.a
 git clone https://github.com/linuxdeepin/linglong --tag 1.5.5
 mv 1.5.5 linglong
 cd linglong
-#cat ../cmake.add >> CMakeLists.txt
+mkdir build
 cd build
 #dnf se libqt5
 cmake ..
