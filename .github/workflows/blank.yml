@@ -8,11 +8,10 @@ jobs:
     - name: package
       run: |        
         dnf up --refresh -y
-        dnf in -y gzip git git-lfs fastfetch cmake gcc
+        #dnf in -y gzip git git-lfs fastfetch cmake gcc
         
     - name: run
       run: |
-        cd ll-rh
         bash indep.sh
     - name: demo
       run: |
