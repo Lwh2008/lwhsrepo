@@ -14,7 +14,7 @@ jobs:
     - name: clone src
       run: |
         git lfs clone https://github.com/lwh2008/ll-rh.git
-    - name: demo
+    - name: demo1
       run: |
         cd ll-rh
         bash indep.sh
