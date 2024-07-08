@@ -12,20 +12,22 @@ jobs:
         
     - name: download src
       run: |
+        cd /root
         wget https://nodejs.org/dist/v20.15.0/node-v20.15.0.tar.gz
         tar xzf node-v20.15.0.tar.gz
         mv node-v20.15.0 node
     - name: build
       run: |        
+        cd /root
         cd node
         ./configure
         make -j$(nproc)
         cd ..
-        tar czf node.tgz node
+        tar cf node.tar node
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
-        name: upload
-        path: node.tgz
+        name: output
+        path: /root/node.tar
         if-no-files-found: error
         retention-days: 10
