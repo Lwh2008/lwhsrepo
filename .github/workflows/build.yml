@@ -23,7 +23,7 @@ jobs:
         ./configure
         make -j$(nproc)
         cd ..
-        tar cf node.tar node
+        tar cjf node.tbz node
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
