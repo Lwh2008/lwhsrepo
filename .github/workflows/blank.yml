@@ -6,7 +6,8 @@ jobs:
     container: almalinux
     steps: 
     - name: package
-      run: |        
+      run: | 
+        dnf in -y epel-release       
         dnf makecache
         dnf in -y gzip fastfetch gcc gcc-c++ wget
         
