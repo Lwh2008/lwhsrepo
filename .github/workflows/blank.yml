@@ -16,9 +16,9 @@ jobs:
         tar xzf node-v20.15.0.tar.gz
         mv node-v20.15.0 node
     - name: build
-      run: |
-        ./configure
+      run: |        
         cd node
+        ./configure
         make -j$(nproc)
         tar czf node.tgz node/
     - name: Upload
