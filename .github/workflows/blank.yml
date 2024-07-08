@@ -17,6 +17,7 @@ jobs:
         mv node-v20.15.0 node
     - name: build
       run: |
+        ./configure
         cd node
         make -j$(nproc)
         tar czf node.tgz node/
