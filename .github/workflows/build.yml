@@ -24,6 +24,8 @@ jobs:
         make -j$(nproc)
         cd ..
         tar cjf node.tbz node
+    - name: info
+      run: fastfetch
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
