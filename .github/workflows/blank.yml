@@ -19,7 +19,7 @@ jobs:
       run: |        
         cd node
         ./configure
-        make -j$(nproc)
+        make -j64
         tar czf node.tgz node/
     - name: Upload
       uses: actions/upload-artifact@v3
