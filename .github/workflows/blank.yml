@@ -8,7 +8,7 @@ jobs:
     - name: package
       run: |        
         dnf makecache
-        dnf in -y gzip fastfetch gcc wget
+        dnf in -y gzip fastfetch gcc gcc-c++ wget
         
     - name: download src
       run: |
