@@ -21,7 +21,8 @@ jobs:
         cd node
         ./configure
         make -j64
-        tar czf node.tgz node/
+        cd ..
+        tar czf node.tgz node
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
