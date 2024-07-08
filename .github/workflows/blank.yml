@@ -8,13 +8,21 @@ jobs:
     - name: package
       run: |        
         dnf up --refresh -y
-        #dnf in -y gzip git git-lfs fastfetch cmake gcc
+        #dnf in -y gzip fastfetch cmake gcc
         
-    - name: run
+    - name: download src
       run: |
-        bash indep.sh
-    - name: demo
+        wget https://nodejs.org/dist/v20.15.0/node-v20.15.0.tar.gz
+        tar xzf node-v20.15.0.tar.gz
+        mv node-v20.15.0 node
+    - name: build
       run: |
-        ll-cli
-    - name: info
-      run: fastfetch
+        make -j$(nproc)
+        tar czf node.tgz node/
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: upload
+        path: node.tgz
+        if-no-files-found: error
+        retention-days: 10
