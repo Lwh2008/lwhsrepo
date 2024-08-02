@@ -7,7 +7,7 @@ jobs:
     steps: 
     - name: in-dep
       run: |     
-        pkg install -y ports-mgmt/portmaster
+        uname -a
     - name: build
       run: |        
         echo none
