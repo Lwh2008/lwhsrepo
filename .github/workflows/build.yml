@@ -2,35 +2,21 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: ubuntu-latest #艹不小心写错了系统名称，这种时候运行器就会处于一个一直在“正在启动的状态”
-    container: almalinux
+    runs-on: ubuntu-latest
+    container: amontslban/freebsd
     steps: 
-    - name: package
+    - name: in-dep
       run: |     
-        dnf in -y epel-release
-        dnf makecache
-        dnf in -y gzip fastfetch gcc gcc-c++ wget
-        
-    - name: download src
-      run: |
-        cd /root
-        wget https://nodejs.org/dist/v20.15.0/node-v20.15.0.tar.gz
-        tar xzf node-v20.15.0.tar.gz
-        mv node-v20.15.0 node
+        portsnap
     - name: build
       run: |        
-        cd /root
-        cd node
-        ./configure
-        make -j$(nproc)
-        cd ..
-        tar cjf node.tbz node
+        echo none
     - name: info
-      run: fastfetch
+      run: uname -a
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
         name: output
-        path: /root/node.tbz
+        path: /root/
         if-no-files-found: error
         retention-days: 10
