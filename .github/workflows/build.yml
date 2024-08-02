@@ -3,7 +3,7 @@ on: [push]
 jobs:
   package:
     runs-on: macos-latest
-    container: amontalban/freebsd
+    container: lexaguskov/freebsd
     steps: 
     - name: in-dep
       run: |     
