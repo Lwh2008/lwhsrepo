@@ -3,7 +3,7 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    #container: kwiat/freebsd
+    container: kwiat/freebsd
     steps: 
     - name: in-dep
       run: |     
