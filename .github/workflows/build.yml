@@ -3,7 +3,7 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: freebsdxc/freebsd
+    container: auchida/freebsd
     steps: 
     - name: in-dep
       run: |     
