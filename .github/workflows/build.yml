@@ -3,7 +3,7 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: toxchat/freebsd
+    container: japaric/x86_64-unknown-freebsd
     steps: 
     - name: in-dep
       run: |     
