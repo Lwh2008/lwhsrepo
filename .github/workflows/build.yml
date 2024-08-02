@@ -3,11 +3,11 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: auchida/freebsd
+    container: toxchat/freebsd
     steps: 
     - name: in-dep
       run: |     
-        pkg update
+        uname -a
     - name: build
       run: |        
         echo none
