@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     container: amontalban/freebsd
     steps: 
     - name: in-dep
