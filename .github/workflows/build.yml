@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: rsync
-      run: ls * && ls .. && pwd && bash sync.sh   
+      run: ls && ls .. && pwd && bash sync.sh   
         
