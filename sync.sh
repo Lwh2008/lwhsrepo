@@ -8,4 +8,4 @@ sudo systemctl restart davfs2
 mkdir sync
 sudo mount -t davfs https://wp.hapuren.cn/dav /sync
 cd sync
-rsync rsync://rsync.mirrors.ustc.edu.cn/debian/* .
+rsync -avz rsync://rsync.mirrors.ustc.edu.cn/debian/* .
