@@ -3,20 +3,7 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    container: japaric/x86_64-unknown-freebsd
     steps: 
-    - name: in-dep
-      run: |     
-        pkg install -y ports-mgmt/portmaster
-    - name: build
-      run: |        
-        echo none
-    - name: info
-      run: uname -a
-    - name: Upload
-      uses: actions/upload-artifact@v3
-      with:
-        name: output
-        path: /root/
-        if-no-files-found: error
-        retention-days: 10
+    - name: sync
+      run: bash sync.sh   
+        
