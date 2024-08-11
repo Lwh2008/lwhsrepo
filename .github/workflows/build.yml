@@ -4,6 +4,9 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: rsync
-      run: ls -a 
+      run: bash sync.sh
         
