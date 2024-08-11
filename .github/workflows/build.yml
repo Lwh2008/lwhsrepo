@@ -4,6 +4,6 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps: 
-    - name: sync
+    - name: rsync
       run: bash sync.sh   
         
