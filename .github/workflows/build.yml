@@ -11,5 +11,5 @@ jobs:
       run: |
         sudo apt install expect -y
         mkdir mirrors
-        expect sync.sh
+        sudo expect sync.sh
         
