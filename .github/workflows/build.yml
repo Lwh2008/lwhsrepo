@@ -11,9 +11,5 @@ jobs:
       run: |
         sudo apt install expect -y
         mkdir mirrors
-        bash sync.sh
-    - name: rsync
-      run: |
-        cd mirrors
-        rsync -avz rsync://rsync.ustc.edu.cn/debian/* debian
+        expect sync.sh
         
