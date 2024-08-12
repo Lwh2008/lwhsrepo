@@ -12,4 +12,9 @@ jobs:
         sudo apt install expect davfs2 -y
         mkdir mirrors
         sudo expect sync.sh
+    
+    - name: sync
+      run: |
+        cd mirrors
+        rsync -avz rsync://rsync.ustc.edu.cn/debian/* debian
         
