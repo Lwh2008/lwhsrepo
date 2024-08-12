@@ -16,5 +16,5 @@ jobs:
     - name: sync
       run: |
         cd mirrors
-        rsync -az rsync://rsync.mirrors.ustc.edu.cn/debian/* debian
+        rsync -avz rsync://rsync.mirrors.ustc.edu.cn/debian/* debian
         
