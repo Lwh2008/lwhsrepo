@@ -12,7 +12,7 @@ jobs:
         sudo apt install expect davfs2 -y
         mkdir mirrors
         sudo expect sync.sh
-    
+        sudo systemctl daemon-reload
     - name: sync
       run: |
         cd mirrors
