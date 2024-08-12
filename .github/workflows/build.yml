@@ -7,6 +7,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: mount
+      run: |
+        sudo apt install expect -y
+        mkdir mirrors
+        bash sync.sh
     - name: rsync
-      run: bash sync.sh
+      run: |
+        cd mirrors
+        rsync -avz rsync://rsync.ustc.edu.cn/debian/* mirrors/debian
         
