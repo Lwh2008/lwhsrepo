@@ -2,7 +2,7 @@
 set timeout 20
 spawn mount -t davfs https://wp.hapuren.cn/dav mirrors/
 expect "Username:"
-send "user\r"
+send "twentyone\r"
 expect "Password:"
-send "pwd\r"
+send "twentyone\r"
 expect eof
