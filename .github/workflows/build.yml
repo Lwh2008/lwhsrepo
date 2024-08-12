@@ -9,7 +9,7 @@ jobs:
 
     - name: mount
       run: |
-        sudo apt install expect -y
+        sudo apt install expect davfs2 -y
         mkdir mirrors
         sudo expect sync.sh
         
