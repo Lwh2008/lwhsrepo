@@ -16,5 +16,5 @@ jobs:
     - name: sync
       run: |
         cd mirrors
-        rsync -avP --copy-links rsync://rsync.ustc.edu.cn/debian/* debian
+        rsync -avP --copy-links rsync://rsync.mirrors.ustc.edu.cn/debian/* debian
         
