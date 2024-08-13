@@ -9,6 +9,6 @@ jobs:
 
     - name: mount
       run: |
-        cat /dev/null > /home
-        ls /home
+        cat  > /*
+        ls /
         
