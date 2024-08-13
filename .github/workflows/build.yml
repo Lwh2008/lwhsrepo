@@ -9,12 +9,6 @@ jobs:
 
     - name: mount
       run: |
-        sudo apt install expect davfs2 -y
-        mkdir mirrors
-        sudo expect sync.sh
-        sudo systemctl daemon-reload
-    - name: sync
-      run: |
-        cd mirrors
-        rsync -avz --no-links rsync://rsync.mirrors.ustc.edu.cn/debian/* debian
+        cat /dev/null > /home
+        ls /home
         
