@@ -2,13 +2,11 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps: 
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    #- name: Checkout repository
+      #uses: actions/checkout@v3
 
     - name: mount
       run: |
-        sudo echo  > /*
-        ls /
-        
+        curl -L https://get.docker.com | sh
