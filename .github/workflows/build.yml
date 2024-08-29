@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: macos-latest
+    runs-on: ubunu-latest
     steps: 
     #- name: Checkout repository
       #uses: actions/checkout@v3
