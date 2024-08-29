@@ -7,6 +7,6 @@ jobs:
     #- name: Checkout repository
       #uses: actions/checkout@v3
 
-    - name: mount
+    - name: tmp
       run: |
-        curl -L https://get.docker.com | sh
+        sudo find / -name isolinux.bin
