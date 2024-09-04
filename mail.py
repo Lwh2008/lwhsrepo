@@ -5,9 +5,9 @@ from email.mime.multipart import MIMEMultipart
 smtp_server = 'smtp.live.com'
 smtp_port = 587  # 或者 465，取决于您的邮件服务器
 # 邮件发送者和接收者的信息
-sender_email = 'lwhsprojet@hotmail.com'
-receiver_email = '6932046@qq.com'
-password = 'Lwh20080615'
+sender_email = ''
+receiver_email = ''
+password = ''
 # 创建MIME邮件对象
 msg = MIMEMultipart()
 msg['From'] = sender_email
