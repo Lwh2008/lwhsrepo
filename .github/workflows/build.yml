@@ -9,4 +9,4 @@ jobs:
 
     - name: tmp
       run: |
-        sudo find / -name isolinux.bin
+        python mail.py
