@@ -27,6 +27,7 @@ jobs:
     - name: build
       run: |
         cd work/limbus-server/src
+        dotnet restore
         dotnet build
 
     - name: save
