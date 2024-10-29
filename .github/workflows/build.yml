@@ -10,7 +10,7 @@ jobs:
     - name: install
       run: |
         mkdir work
-        choco install dotnet-sdk git
+        choco install dotnet-sdk
         dotnet --version
 
     - name: info
@@ -21,6 +21,8 @@ jobs:
       run: |
         cd work
         git clone https://github.com/steviegt6/limbus-server.git
+        cd limbus-server/src
+        git clone https://github.com/SamboyCoding/Cpp2IL.git
 
     - name: build
       run: |
