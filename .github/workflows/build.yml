@@ -2,11 +2,35 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps: 
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: tmp
+    - name: install
       run: |
-        python mail.py
+        mkdir work
+        choco install dotnet-sdk git
+        dotnet --version
+
+    - name: info
+      run: |
+        systeminfo
+
+    - name: clone
+      run: |
+        cd work
+        git clone https://github.com/steviegt6/limbus-server.git
+
+    - name: build
+      run: |
+        cd work/limbus-server/src
+        dotnet build Tomat.LimbusServer.sln
+
+    - name: save
+      uses: actions/upload-artifact@v3
+      with:
+        name: after-build
+        path: work/
+        
+       
