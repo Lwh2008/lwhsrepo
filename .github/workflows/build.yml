@@ -2,38 +2,13 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps: 
     - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: install
-      run: |
-        mkdir work
-        choco install dotnet-sdk
-        dotnet --version
+      run: sudo apt install neofetch -y
 
     - name: info
-      run: |
-        systeminfo
-
-    - name: clone
-      run: |
-        cd work
-        git clone https://github.com/steviegt6/limbus-server.git
-        cd limbus-server/src
-        git clone https://github.com/SamboyCoding/Cpp2IL.git
-
-    - name: build
-      run: |
-        cd work/limbus-server/src
-        dotnet restore
-        dotnet build
-
-    - name: save
-      uses: actions/upload-artifact@v3
-      with:
-        name: after-build
-        path: work/
-        
-       
+      run: neofetch
