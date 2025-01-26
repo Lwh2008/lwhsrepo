@@ -10,7 +10,7 @@ jobs:
     - name: install-dep
       run: |
         sudo apt update
-        sudo apt install neofetch qt6-default -y
+        sudo apt install neofetch qt5-default -y
 
     - name: demo
       run: |
