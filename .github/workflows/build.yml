@@ -7,8 +7,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: install
-      run: sudo apt install neofetch -y
+    - name: install-dep
+      run: |
+        sudo apt update
+        sudo apt install neofetch qt6-default -y
+
+    - name: demo
+      run: |
+        qmake
 
     - name: info
       run: neofetch
