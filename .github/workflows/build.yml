@@ -16,4 +16,4 @@ jobs:
         swupd bundle-add fastfetch
 
     - name: info
-      run: neofetch
+      run: fastfetch
