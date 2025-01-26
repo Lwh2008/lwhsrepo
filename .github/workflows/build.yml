@@ -13,7 +13,10 @@ jobs:
     - name: install-dep
       run: |
         swupd update
-        swupd bundle-add fastfetch
+        swupd bundle-add fastfetch dev-utils qt-basic
 
     - name: info
       run: fastfetch
+
+    - name: qmake
+      run: qmake && qmake -v
