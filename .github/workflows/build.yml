@@ -14,7 +14,7 @@ jobs:
       run: |
         swupd update
         swupd bundle-add fastfetch dev-utils qt-basic
-
+        swupd search qmake
     - name: info
       run: fastfetch
 
