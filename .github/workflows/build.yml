@@ -3,18 +3,17 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
+    container:
+      image: clearlinux:latest
+      options: --privileged
     steps: 
     - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: install-dep
       run: |
-        sudo apt update
-        sudo apt install neofetch qt5-default -y
-
-    - name: demo
-      run: |
-        qmake
+        swupd update
+        swupd bundle-add fastfetch
 
     - name: info
       run: neofetch
