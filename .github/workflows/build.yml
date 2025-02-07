@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: rockylinux:9.3
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -16,14 +17,6 @@ jobs:
         uses: docker/setup-qemu-action@v2
         with:
           platforms: arm64
-
-      - name: install Docker
-        run: sudo apt update && sudo apt purge containerd* -y && sudo apt install docker.io -y
-
-      - name: run Docker
-        run: |
-          sudo docker pull --platform linux/arm64 rockylinux:9.3
-          sudo docker images
           
       - name: run script
-        run: sudo docker run --rm -t rockylinux:9.3 uname -a && ls && bash -e build_opi_knl.sh && ls build -a
+        run: sudo uname -a && ls && sudo bash -e build_opi_knl.sh && ls build -a
