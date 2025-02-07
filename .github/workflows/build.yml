@@ -13,11 +13,7 @@ jobs:
 
     - name: install-dep
       run: |
-        dnf makecache
-        dnf in fastfetch -y
-
-    - name: info
-      run: fastfetch
+        dnf in git -y
 
     - name: run script
       run: |
