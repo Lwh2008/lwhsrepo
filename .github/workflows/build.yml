@@ -2,9 +2,9 @@ name: CI
 on: [push]
 jobs:
   package:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-arm64
     container:
-      image: clearlinux:latest
+      image: rockylinux:latest
       options: --privileged
     steps: 
     - name: Checkout repository
@@ -12,11 +12,7 @@ jobs:
 
     - name: install-dep
       run: |
-        swupd update
-        swupd bundle-add fastfetch dev-utils kde-frameworks5-dev
-        swupd search qmake
+        sudo dnf makecache
+        suso dnf in fastfetch -y
     - name: info
       run: fastfetch
-
-    - name: qmake
-      run: qmake && qmake -v
