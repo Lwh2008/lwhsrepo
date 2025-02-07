@@ -1,33 +1,27 @@
 name: CI
-
-on:
-  push:
-    branches:
-      - main
-
+on: [push]
 jobs:
-  build:
+  package:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    container:
+      image: rockylinux:latest
+      options: --privileged
+    steps: 
 
-      - name: set up QEMU for ARM
-        uses: docker/setup-qemu-action@v2
-        with:
-          platforms: arm64
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: install Docker
-        run: sudo apt update && sudo apt purge containerd* -y && sudo apt install docker.io -y
+    - name: install-dep
+      run: |
+        sudo dnf makecache
+        suso dnf in fastfetch -y
 
-      - name: run Docker
-        run: |
-          sudo docker pull --platform linux/arm64 rockylinux:9.3
-          sudo docker images
-          
-      - name: run script
-        run: |
-          sudo docker run -t rockylinux:9.3 dnf in git -y
-          sudo docker run -t rockylinux:9.3 whereis git
-          sudo docker run -t rockylinux:9.3 bash -e build_opi_knl.sh && ls build -a
-          
+    - name: info
+      run: fastfetch
+
+    - name: run script
+      run: |
+        bash build_opi_knl.sh
+        ls build -a
+
+    
