@@ -13,6 +13,8 @@ jobs:
     - name: install-dep
       run: |
         dnf in git sudo -y
+        ln -s /usr/bin/dnf /usr/bin/apt-get
+        ln -s /usr/bin/dnf /usr/bin/apt
 
     - name: run script
       run: |
