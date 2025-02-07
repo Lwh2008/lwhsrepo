@@ -13,8 +13,8 @@ jobs:
 
     - name: install-dep
       run: |
-        sudo dnf makecache
-        suso dnf in fastfetch -y
+        dnf makecache
+        dnf in fastfetch -y
 
     - name: info
       run: fastfetch
