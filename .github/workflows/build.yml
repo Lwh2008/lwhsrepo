@@ -26,4 +26,4 @@ jobs:
           sudo docker images
           
       - name: run script
-        run: sudo docker run --rm -t rockylinux:9.3 uname -a
+        run: sudo docker run --rm -t rockylinux:9.3 uname -a && ls
