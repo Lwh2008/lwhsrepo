@@ -26,4 +26,8 @@ jobs:
           sudo docker images
           
       - name: run script
-        run: sudo docker run -t rockylinux:9.3 bash -e build_opi_knl.sh && ls build -a
+        run: |
+          sudo docker run -t rockylinux:9.3 dnf in git -y
+          sudo docker run -t rockylinux:9.3 git clone https://github.com/lwh2008/lwhsrepo .
+          sudo docker run -t rockylinux:9.3 bash -e build_opi_knl.sh && ls build -a
+          
