@@ -22,5 +22,5 @@ jobs:
 
       - name: run Docker
         run: |
-          sudo docker pull --platform linux/arm64 arm64v8/rockylinux 
+          sudo docker pull --platform linux/arm64 rockylinux 
           sudo docker images
