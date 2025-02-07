@@ -3,18 +3,10 @@ on: [push]
 jobs:
   package:
     runs-on: ubuntu-latest
-    container:
-      image: rockylinux:9.3
     steps: 
 
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: install-dep
-      run: |
-        dnf in git sudo -y
-        ln -s /usr/bin/dnf /usr/bin/apt-get
-        ln -s /usr/bin/dnf /usr/bin/apt
 
     - name: run script
       run: |
