@@ -1,8 +1,8 @@
 #!/usr/bin/expect
 set timeout 20
-spawn mount -t davfs https://wp.hapuren.cn/123pan/user1-1/ mirrors/
+spawn mount -t davfs YOUR_URL target/
 expect "Username:"
-send "twentyone\r"
+send "USER_NAME\r"
 expect "Password:"
-send "twentyone\r"
+send "PASSWORD\r"
 expect eof
