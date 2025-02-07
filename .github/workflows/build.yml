@@ -12,7 +12,7 @@ jobs:
 
     - name: install-dep
       run: |
-        dnf in git -y
+        dnf in git sudo -y
 
     - name: run script
       run: |
