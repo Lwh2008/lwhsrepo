@@ -1,18 +1,26 @@
 name: CI
-on: [push]
-jobs:
-  package:
-    runs-on: ubuntu-latest-arm64
-    container:
-      image: rockylinux:latest
-      options: --privileged
-    steps: 
-    - name: Checkout repository
-      uses: actions/checkout@v3
 
-    - name: install-dep
-      run: |
-        sudo dnf makecache
-        suso dnf in fastfetch -y
-    - name: info
-      run: fastfetch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: set up QEMU for ARM
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
+
+      - name: install Docker
+        run: sudo apt update && sudo apt install docker.io -y
+
+      - name: run Docker
+        run: |
+          sudo docker pull --platform linux/arm64 arm64v8/rockylinux 
+          sudo docker images
