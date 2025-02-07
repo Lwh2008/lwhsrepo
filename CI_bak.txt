@@ -1,0 +1,38 @@
+name: Build Orange Pi Image on Rocky Linux
+
+on:
+  push:
+    branches:
+      - main  # 触发构建的分支
+  pull_request:
+    branches:
+      - main  # 在 PR 时触发构建
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用 x86 架构的环境
+    steps:
+      # 1. 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. 设置 QEMU 支持 ARM
+      - name: Set up QEMU for ARM
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64  # 启用 ARM64 支持
+
+      # 3. 设置 Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # 4. 构建 Rocky Linux 镜像
+      - name: Build Rocky Linux Docker image
+        run: |
+          docker build -t orange-pi-rocky .
+
+      # 5. 运行构建脚本
+      - name: Run build script
+        run: |
+          docker run --rm --platform linux/arm64 \
+            orange-pi-rocky ./build.sh
