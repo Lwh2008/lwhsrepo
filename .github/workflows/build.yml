@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: rockylinux:9.3
-      options: --privileged
     steps: 
 
     - name: Checkout repository
