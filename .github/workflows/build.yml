@@ -26,4 +26,4 @@ jobs:
           sudo docker images
           
       - name: run script
-        run: sudo docker run --it rockylinux:9.3 bash -e build_opi_knl.sh && ls build -a
+        run: sudo docker run -it rockylinux:9.3 bash -e build_opi_knl.sh && ls build -a
