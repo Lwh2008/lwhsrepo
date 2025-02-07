@@ -18,7 +18,7 @@ jobs:
           platforms: arm64
 
       - name: install Docker
-        run: sudo apt update && sudo apt install docker.io -y
+        run: sudo apt update && sudo apt purge containerd* -y && sudo apt install docker.io -y
 
       - name: run Docker
         run: |
